@@ -9,17 +9,9 @@ Extend form validation and implement dynamic updates to the DOM + Client-side Ro
 - Simple hash-based routing between Home and Register pages
 - Built using HTML, CSS, and JavaScript (no libraries or frameworks)
 
- 📽 Demo Video
+ 
 
-Click the link below to watch the working demo of the project:
-
-📁 ****
-
-> If it doesn't play directly, download and open the file manually.
-
----
-
-## 📋 How It Works
+📋 How It Works
 
 - Navigate using `Home` and `Register` links (client-side routing).
 - In the register form:
@@ -31,7 +23,7 @@ Click the link below to watch the working demo of the project:
 
 ---
 
-## 🧰 Tech Stack
+ 🧰 Tech Stack
 
 | Tech        | Description                    |
 |-------------|--------------------------------|
@@ -39,27 +31,20 @@ Click the link below to watch the working demo of the project:
 | CSS         | Basic styling                  |
 | JavaScript  | Validation, routing, and logic |
 
----
 
-## 📂 How to Run
+
+ 📂 How to Run
 
 1. Clone the repo or download the zip
 2. Open `index.html` in your browser
 3. No setup or installation required
 
----
 
-## 👩‍💻 Author
+#intership #cognifyz #WebDevelopment #JavaScript #HTML #CSS #FrontEndDevelopment #DOMManipulation #ClientSideRouting #FormValidation
 
-**Ch Harini**  
-🔗 https://github.com/Ch-harini11
 
----
 
-## 🌐 Optional Live Demo
 
-If hosted with GitHub Pages, link can be added here:
-file:///C:/Users/C.%20Harini/Documents/Cognifyz_FullStack_Internship/Level_2_Task_2/index.html
 
----
+
 
