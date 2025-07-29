@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home & Register</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #000;
+      color: #fff;
+    }
+
+    .container {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    #home {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      text-shadow: 0 0 20px #00f;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+
+    .btn {
+      background: transparent;
+      border: 2px solid #00f;
+      color: #00f;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #00f;
+      color: #fff;
+      box-shadow: 0 0 20px #00f;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+      max-width: 400px;
+      background: #111;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #00f;
+    }
+
+    input {
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    small {
+      text-align: left;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .link {
+      color: #0af;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    @media screen and (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HOME SECTION -->
+<div class="container" id="home">
+  <!-- Background Video -->
+  <video autoplay muted loop id="homeVideo" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+    <source src="home_bg.mp4" type="home_bg/mp4" />
+    Your browser does not support HTML5 video.
+  </video>
+
+  <h1>Welcome to Our Site</h1>
+  <p>Click below to register and experience awesome features!</p>
+  <button class="btn" onclick="navigateTo('register')">Get Started</button>
+</div>
+
+
+  <!-- REGISTER SECTION -->
+  <div class="container" id="register">
+    <form id="registerForm">
+      <h1>Register</h1>
+      <input type="text" id="name" placeholder="Full Name" required />
+      <input type="email" id="email" placeholder="Email Address" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <small id="strengthMsg">Password Strength</small>
+      <button type="submit" class="btn">Register</button>
+      <small>Already have an account? <span class="link" onclick="navigateTo('home')">Go Back</span></small>
+    </form>
+  </div>
+
+  <script>
+    // Page routing
+    function navigateTo(page) {
+      document.getElementById("home").style.display = "none";
+      document.getElementById("register").style.display = "none";
+
+      document.getElementById(page).style.display = "flex";
+    }
+
+    // Initial load - show Home
+    navigateTo("home");
+
+    // Form validation
+    const form = document.getElementById("registerForm");
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      const passwordPattern =
+        /^(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+      if (!emailPattern.test(email.value)) {
+        alert("Invalid email format.");
+        return;
+      }
+
+      if (!passwordPattern.test(password.value)) {
+        alert(
+          "Password must be at least 8 characters, include 1 uppercase letter, 1 number, and 1 special character."
+        );
+        return;
+      }
+
+      alert("Registration successful!");
+      form.reset();
+      navigateTo("home");
+    });
+
+    // Password strength indicator
+    password.addEventListener("input", () => {
+      const val = password.value;
+      const msg = document.getElementById("strengthMsg");
+
+      if (val.length === 0) msg.textContent = "Password Strength";
+      else if (val.length < 6) msg.textContent = "Weak";
+      else if (val.length < 10) msg.textContent = "Moderate";
+      else msg.textContent = "Strong";
+    });
+  </script>
+</body>
+</html>
